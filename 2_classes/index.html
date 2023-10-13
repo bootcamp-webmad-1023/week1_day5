@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+
+        class Person {
+
+            constructor(nameValue, ageValue, heightValue, celiacValue, hobbiesValue) {
+                this.name = nameValue
+                this.age = ageValue
+                this.height = heightValue
+                this.celiac = celiacValue
+                this.hobbies = hobbiesValue
+                this.active = true
+            }
+
+            learnNewHobby(newHobby) {
+                this.hobbies.push(newHobby)
+            }
+
+            grow(extraYears = 1) {
+                this.age += extraYears
+            }
+        }
+
+        const instance1 = new Person('Lucía Sanz', 33, 1.79, false, ['beer', 'dance'])
+        const instance2 = new Person('Moha Sanz', 31, 1.69, true, ['gadgets', 'sing'])
+
+        console.log('Esto es una instancia (un objeto)', instance1)
+
+
+        console.log(`Ahora tengo ${instance1.age} años`)
+        instance1.grow()
+        console.log(`Ahora tengo ${instance1.age} años`)
+
+
+        console.log('Tengo', instance2.hobbies.length, 'hobbies, y son', instance2.hobbies)
+        instance2.learnNewHobby('Jagger')
+        console.log('Tengo', instance2.hobbies.length, 'hobbies, y son', instance2.hobbies)
+
+
+
+
+    </script>
+</body>
+
+</html>

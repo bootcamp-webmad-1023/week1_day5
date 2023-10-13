@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        const person = {
+            name: 'Germán Álvarez',
+            weight: 86,
+            age: 37,
+            height: 1.89,
+            celiac: false,
+            job: {
+                position: 'Lead Instructor',
+                salary: 1000,
+                company: 'Ironhack'
+            },
+            hobbies: ['sky', 'rave', 'coding', 'walking'],
+            subscriptions: [
+                { provider: 'Amazon music', cost: 9.99 },
+                { provider: 'HBO', cost: 12.99 },
+                { provider: 'Share Now', cost: 39 }
+            ],
+            learnNewHobby(newHobby) {
+                this.hobbies.push(newHobby)
+            },
+            getTotalSubscriptionsCost() {
+                let sumCost = 0
+                this.subscriptions.forEach(eachSubscription => {
+                    sumCost += eachSubscription.cost
+                })
+                return sumCost.toFixed(2)
+            },
+            buyNewSubscription(serviceName, servicePrice) {
+                const newSubscription = { provider: serviceName, cost: servicePrice }
+                this.subscriptions.push(newSubscription)
+            },
+            grow(extraYears = 1) {
+                this.age += extraYears
+            }
+        }
+
+        console.log('Un objeto es de tipo', typeof person)
+        console.log('Objeto completo:', person)
+
+
+
+        console.log('Ahora mis hobbies son', person.hobbies)
+        person.learnNewHobby('gadgets')
+        console.log('Ahora mis hobbies son', person.hobbies)
+
+
+        console.log('Me estoy dejando', person.getTotalSubscriptionsCost(), '€')
+        person.buyNewSubscription('Netflix', 19.99)
+        console.log('Me estoy dejando', person.getTotalSubscriptionsCost(), '€')
+
+
+        console.log(`Ahora tengo ${person.age} años`)
+        person.grow()
+        console.log(`Ahora tengo ${person.age} años`)
+
+
+    </script>
+</body>
+
+</html>
